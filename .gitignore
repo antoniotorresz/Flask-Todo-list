@@ -1,0 +1,2 @@
+#ignoring virtual enviroment folder, please use requirements.txt to run project well
+venv/
