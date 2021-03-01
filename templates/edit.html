@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar</title>
+</head>
+<body>
+
+</body>
+</html>{% extends 'base.html' %}
+{% block  title %}Modificar detalles de {{ tarea[1] }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form class="needs-validation" method="post" action="{{ url_for('edit', id=tarea[0][0]) }}">
+            <div class="form-group">
+                <label for="tarea">Descripcion</label>
+                <input type="text" class="form-control" name="tarea" aria-describedby="emailHelp"
+                       placeholder="Detalles de la tarea" value="{{ tarea[0][1] }}" required>
+
+                <label > Fecha limite </label>
+                <input type="date" class="form-control" name="fecha_limite" value="{{ tarea[0][3] }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}

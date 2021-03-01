@@ -1,0 +1,18 @@
+{% extends "bootstrap/base.html" %}
+<head>
+    <meta lang="es">
+    <meta charset="UTF-8">
+    {% block title %}This is an example page{% endblock %}
+</head>
+
+{% block navbar %}
+    <div class="navbar navbar-inverse">
+        <a class="navbar-brand" href="{{ url_for('index') }}" style="color: white">Lista de cosas por hacer</a>
+    </div>
+{% endblock %}
+
+<div class="container">
+    {% block content %}
+        <h1>Hello, Bootstrap</h1>
+    {% endblock %}
+</div>

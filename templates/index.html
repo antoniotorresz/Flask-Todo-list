@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block  title %}Lista cosas por hacer{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Fecha de creacion</th>
+                <th scope="col">Fecha limite</th>
+                <th scope="col">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- JINJA2 FOR LOOP -->
+            {% for t in tareas %}
+                <tr>
+                    <th scope="row"> {{ t[0] }} </th>
+                    <th> {{ t[1] }} </th>
+                    <th> {{ t[2] }} </th>
+                    <th> {{ t[3] }} </th>
+                    <th> <a href="{{ url_for('edit', id=t[0]) }}"> Editar </a> <a href="{{ url_for('remove', id=t[0]) }}">Completar</a> </th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <form class="needs-validation" method="post" action="{{ url_for('create') }}">
+            <div class="form-group">
+                <label for="tarea">Descripcion</label>
+                <input type="text" class="form-control" name="tarea" aria-describedby="emailHelp"
+                       placeholder="Detalles de la tarea" required>
+
+                <label > Fecha limite </label>
+                <input type="date" class="form-control" name="fecha_limite" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}
